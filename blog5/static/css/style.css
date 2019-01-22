@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.article_wrap {
+  height: auto;
+  width: 950px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-bottom: 20px;
+}
