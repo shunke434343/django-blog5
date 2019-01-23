@@ -1,6 +1,6 @@
 <!-- post             -->
 <div class="post col-xl-6">
-  <div class="post-thumbnail"><a href="post.html"><img src="img/blog-post-2.jpg" alt="..." class="img-fluid"></a></div>
+  <div class="post-thumbnail"><a href="{% url 'blog5:detail' article.pk %}"><img src="{{ article.image.url }}" alt="..." class="img-fluid"></a></div>
   <div class="post-details">
     <div class="post-meta d-flex justify-content-between">
       <div class="date meta-last">{{ article.created_at|date:"Y-m-j H:i:s" }}</div>

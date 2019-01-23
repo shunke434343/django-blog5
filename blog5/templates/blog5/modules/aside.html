@@ -28,7 +28,7 @@
     {% for category in category_list %}
     <div class="item d-flex justify-content-between">
       <a href="#">{{ category.category }}</a>
-      <span>12</span>
+      <span>{{ category.article_set|length }}</span>
     </div>
     {% endfor %}
   </div>

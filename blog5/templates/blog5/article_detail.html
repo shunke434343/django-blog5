@@ -7,10 +7,10 @@
     <main class="post blog-post col-lg-8">
       <div class="container">
         <div class="post-single">
-          <div class="post-thumbnail"><img src="img/blog-post-3.jpeg" alt="..." class="img-fluid"></div>
+          <div class="post-thumbnail"><img src="{{ article.image.url }}" alt="..." class="img-fluid"></div>
           <div class="post-details">
             <div class="post-meta d-flex justify-content-between">
-              <div class="category"><a href="#">カテゴリーを表示</a></div>
+              <div class="category"><a href="#">{{ article.category.category }}</a></div>
             </div>
             <h1>{{ article.title }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
             <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
@@ -24,12 +24,17 @@
               {{ article.content | safe }}
             </div>
             <!-- タグ -->
-            <div class="post-tags"><a href="#" class="tag">#Business</a></div>
-            <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row"><a href="#" class="prev-post text-left d-flex align-items-center">
+            <div class="post-tags">
+              {% for tag in article.tag.all %}
+              <a href="#" class="tag">#{{ tag }}</a>
+              {% endfor %}
+            </div>
+            <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
+              <a href="{{ root }}/detail/{{ article.id|add:-1 }}" class="prev-post text-left d-flex align-items-center">
                 <div class="icon prev"><i class="fa fa-angle-left"></i></div>
                 <div class="text"><strong class="text-primary">Previous Post </strong>
                   <h6>I Bought a Wedding Dress.</h6>
-                </div></a><a href="#" class="next-post text-right d-flex align-items-center justify-content-end">
+                </div></a><a href="{{ root }}/detail/{{ article.id|add:1 }}" class="next-post text-right d-flex align-items-center justify-content-end">
                 <div class="text"><strong class="text-primary">Next Post </strong>
                   <h6>I Bought a Wedding Dress.</h6>
                 </div>
