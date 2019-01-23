@@ -35,6 +35,7 @@ class Article(models.Model):
     title = models.CharField('title', max_length=40)
     summary = models.CharField('summary', max_length=100, default="test")
     content = HTMLField('content', max_length=5000)
+    image = models.ImageField(upload_to='documents/', default='defo')
     created_at = models.DateTimeField('date', default=timezone.now)
     category = models.ForeignKey(Category, verbose_name='カテゴリー', default=11, on_delete=models.PROTECT)
     tag = models.ManyToManyField(Tag, verbose_name='タグ', blank=True)
