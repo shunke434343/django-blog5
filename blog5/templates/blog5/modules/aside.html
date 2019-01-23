@@ -1,0 +1,55 @@
+<aside class="col-lg-4">
+  <!-- Widget [Search Bar Widget]-->
+  <div class="widget search">
+    <header>
+      <h3 class="h6">ブログ内検索</h3>
+    </header>
+    <form action="#" class="search-form">
+      <div class="form-group">
+        <input type="search" placeholder="何をお探しですか？">
+        <button type="submit" class="submit"><i class="icon-search"></i></button>
+      </div>
+    </form>
+  </div>
+  <!-- Widget [Latest Posts Widget]        -->
+  <div class="widget latest-posts">
+    <header>
+      <h3 class="h6">最近の投稿</h3>
+    </header>
+    <div class="blog-posts"><a href="#">
+        <div class="item d-flex align-items-center">
+          <div class="image"><img src="img/small-thumbnail-3.jpg" alt="..." class="img-fluid"></div>
+          <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
+            <div class="d-flex align-items-center">
+              <!-- <div class="views"><i class="icon-eye"></i> 500</div> -->
+              <div class="comments"><i class="icon-comment"></i>12</div>
+            </div>
+          </div>
+        </div></a>
+      </div>
+  </div>
+  <!-- Widget [Categories Widget]-->
+  <div class="widget categories">
+    <header>
+      <h3 class="h6">カテゴリー</h3>
+    </header>
+    {% for category in category_list %}
+    <div class="item d-flex justify-content-between">
+      <a href="#">{{ category.category }}</a>
+      <span>12</span>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- Widget [Tags Cloud Widget]-->
+  <div class="widget tags">
+    <header>
+      <h3 class="h6">タグ</h3>
+    </header>
+    <ul class="list-inline">
+      <!-- タグ -->
+      {% for tag in tag_list %}
+      <li class="list-inline-item"><a href="#" class="tag">#{{ tag.tag }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>
