@@ -37,6 +37,7 @@ class Article(models.Model):
     content = HTMLField('content', max_length=5000)
     created_at = models.DateTimeField('date', default=timezone.now)
     category = models.ForeignKey(Category, verbose_name='カテゴリー', default=11, on_delete=models.PROTECT)
+    tag = models.ManyToManyField(Tag, verbose_name='タグ', blank=True)
 
     def __str__(self):
         return self.title
