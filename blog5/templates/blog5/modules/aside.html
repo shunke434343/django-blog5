@@ -4,9 +4,9 @@
     <header>
       <h3 class="h6">ブログ内検索</h3>
     </header>
-    <form action="#" class="search-form">
+    <form action="{% url 'blog5:index' %}" class="search-form" method="GET">
       <div class="form-group">
-        <input type="search" placeholder="何をお探しですか？">
+        <input type="search" placeholder="キーワード" name="keyword">
         <button type="submit" class="submit"><i class="icon-search"></i></button>
       </div>
     </form>
@@ -16,7 +16,7 @@
     <header>
       <h3 class="h6">最近の投稿</h3>
     </header>
-    {% for article in article_list|slice:":5"%}
+    {% for current_article in current_articles|slice:":5"%}
     {% include 'blog5/modules/current-post.html' %}
     {% endfor %}
   </div>
@@ -27,8 +27,8 @@
     </header>
     {% for category in category_list %}
     <div class="item d-flex justify-content-between">
-      <a href="#">{{ category.category }}</a>
-      <span>{{ category.article_set|length }}</span>
+      <a href="{% url 'blog5:category' category.pk %}">{{ category.category }}</a>
+      <span>{{ category.article_set.all|length }}</span>
     </div>
     {% endfor %}
   </div>
@@ -40,7 +40,7 @@
     <ul class="list-inline">
       <!-- タグ -->
       {% for tag in tag_list %}
-      <li class="list-inline-item"><a href="#" class="tag">#{{ tag.tag }}</a></li>
+      <li class="list-inline-item"><a href="{% url 'blog5:tag' tag.pk %}" class="tag">#{{ tag.tag }}</a></li>
       {% endfor %}
     </ul>
   </div>

@@ -4,7 +4,7 @@
   <div class="post-details">
     <div class="post-meta d-flex justify-content-between">
       <div class="date meta-last">{{ article.created_at|date:"Y-m-j H:i:s" }}</div>
-      <div class="category"><a href="#">{{ article.category.category }}</a></div>
+      <div class="category"><a href="{% url 'blog5:category' article.category.pk %}">{{ article.category.category }}</a></div>
     </div><a href="{% url 'blog5:detail' article.pk %}">
       <h3 class="h4">{{ article.title }}</h3></a>
     <p class="text-muted">{{ article.summary }}</p>
@@ -12,7 +12,7 @@
         <!-- <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid"></div> -->
         <!-- <div class="title"><span>John Doe</span></div></a> -->
       <div class="date"><i class="icon-clock"></i> 何々 months ago</div>
-      <div class="comments meta-last"><i class="icon-comment"></i>コメント数</div>
+      <div class="comments meta-last"><i class="icon-comment"></i>{{ article.comment_set.all|length}}</div>
     </div>
   </div>
 </div>

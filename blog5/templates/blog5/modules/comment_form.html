@@ -1,0 +1,26 @@
+{% load widget_tweaks %}
+
+<div class="add-comment">
+  <header>
+    <h3 class="h6">コメント投稿</h3>
+  </header>
+  <form action="{% url 'blog5:comment' article.pk %}" class="commenting-form" method="POST">
+    <div class="row">
+      <div class="form-group col-md-6">
+        {% render_field form.name class="form-control" placeholder="お名前" %}
+        <!-- <input type="text" name="name" id="username" placeholder="名前" class="form-control"> -->
+      </div>
+      <div class="form-group col-md-6">
+        {% render_field form.mailadress class="form-control" placeholder="メールアドレス(空欄可) / 一覧に表示はされません" %}
+        <!-- <input type="email" name="mailadress" id="useremail" placeholder="メールアドレス（空欄可）" class="form-control"> -->
+      </div>
+      <div class="form-group col-md-12">
+        {% render_field form.comment class="form-control" id="usercomment" placeholder="コメントを入力してください" rows="1" %}
+      </div>
+      <div class="form-group col-md-12">
+        <button type="submit" class="btn btn-secondary">送信</button>
+        {% csrf_token %}
+      </div>
+    </div>
+  </form>
+</div>
