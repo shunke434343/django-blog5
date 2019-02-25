@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7ne-qn8*hv##%ec91(avvgm1gysb*1yxrhfkly@^px*@$*gfb6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -81,9 +80,10 @@ WSGI_APPLICATION = 'project5.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # 変更
-        'NAME': 'blog5', # 変更
-        'USER': 'root', # パソコンにインストールしたMySQLのユーザー名
-        'PASSWORD': '', # 同上。そのパスワード
+        'NAME': 'heroku_ca6daa9a65b63b4', # 変更
+        'USER': 'b202a6f91b82df', # パソコンにインストールしたMySQLのユーザー名
+        'PASSWORD': '15429d85',
+        'HOST': 'us-cdbr-iron-east-03.cleardb.net',# 同上。そのパスワード
                'OPTIONS': {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         }
@@ -132,3 +132,15 @@ STATICFILES_DIRS = (
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+if not DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
