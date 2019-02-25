@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
-from tinymce import HTMLField
+from markdownx.utils import markdownify
+# from tinymce import HTMLField
+from markdownx.models import MarkdownxField
 import datetime
 import pytz
 
@@ -24,8 +26,8 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField('title', max_length=40)
     summary = models.CharField('summary', max_length=100, default="test")
-    content = HTMLField('content', max_length=5000)
-    image = models.ImageField(upload_to='documents/', default='defo')
+    content = MarkdownxField('content', max_length=5000)
+    image = models.ImageField(upload_to='documents/', default='defo.jpg')
     created_at = models.DateTimeField('date', default=timezone.now)
     category = models.ForeignKey(Category, verbose_name='カテゴリー', default=11, on_delete=models.PROTECT)
     tag = models.ManyToManyField(Tag, verbose_name='タグ', blank=True)
@@ -36,6 +38,9 @@ class Article(models.Model):
         now = timezone.localize(now)
         delta = now - self.created_at
         return delta.days
+
+    def text_to_markdown(self):
+        return markdownify(self.content)
 
     def __str__(self):
         return self.title
