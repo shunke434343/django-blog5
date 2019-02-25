@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 from markdownx.utils import markdownify
-# from tinymce import HTMLField
 from markdownx.models import MarkdownxField
 import datetime
 import pytz

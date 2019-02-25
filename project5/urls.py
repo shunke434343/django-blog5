@@ -22,7 +22,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog5.urls')),
-    # path('tinymce/', include('tinymce.urls')),
     path('blog5/', include('blog5.urls')),
     path('markdownx/', include('markdownx.urls')),
 ]
