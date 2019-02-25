@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.article_wrap {
+  height: auto;
+  /* min-height: 100vh; */
+  width: 760px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.aside {
+  height: auto;
+  min-height: 100vh;
+  width: 380;
+}
+
+.card-image {
+  margin-bottom: 20px;
+}
