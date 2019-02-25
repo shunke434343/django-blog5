@@ -1,0 +1,76 @@
+{% load static %}
+<aside class="col-lg-4">
+  <!-- Widget [Search Bar Widget]-->
+  <div class="widget search">
+    <header>
+      <h3 class="h6">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        プロフィール
+      </h3>
+    </header>
+    <p style='font-size:14px'>
+      <img src="{% static "img/mog.png" %}" alt="..." class="img-fluid rounded-circle col-sm-3">
+      <span style="font-size:18px; font-weight:bold">Shunka</span><br><br>
+      エンジニア目指してプログラミングスクール通ってます。
+      メガバンク、不動産会社で仕事をしていたこともあります。
+      趣味は音楽、好きな食べ物はスパイスカレーです。</br>
+      5/12(日) After Hours行きます。今年はサマソニも行きたい。
+    <p>
+  </div>
+  <div class="widget search">
+    <header>
+      <h3 class="h6">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        ブログ内検索
+      </h3>
+    </header>
+    <form action="{% url 'blog5:index' %}" class="search-form" method="GET">
+      <div class="form-group">
+        <input type="search" placeholder="キーワード" name="keyword">
+        <button type="submit" class="submit"><i class="icon-search"></i></button>
+      </div>
+    </form>
+  </div>
+  <!-- Widget [Latest Posts Widget]        -->
+  <div class="widget latest-posts">
+    <header>
+      <h3 class="h6">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+        最近の投稿
+      </h3>
+    </header>
+    {% for current_article in current_articles|slice:":5"%}
+    {% include 'blog5/modules/current-post.html' %}
+    {% endfor %}
+  </div>
+  <!-- Widget [Categories Widget]-->
+  <div class="widget categories">
+    <header>
+      <h3 class="h6">
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        カテゴリー
+      </h3>
+    </header>
+    {% for category in category_list %}
+    <div class="item d-flex justify-content-between">
+      <a href="{% url 'blog5:category' category.pk %}">{{ category.category }}</a>
+      <span>{{ category.article_set.all|length }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- Widget [Tags Cloud Widget]-->
+  <div class="widget tags">
+    <header>
+      <h3 class="h6">
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        タグ
+      </h3>
+    </header>
+    <ul class="list-inline">
+      <!-- タグ -->
+      {% for tag in tag_list %}
+      <li class="list-inline-item"><a href="{% url 'blog5:tag' tag.pk %}" class="tag">#{{ tag.tag }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>
