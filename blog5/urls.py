@@ -8,5 +8,5 @@ urlpatterns = [
     path('detail/<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('category/<int:pk>/', views.CategoryView.as_view(), name='category'),
     path('tag/<int:pk>/', views.TagView.as_view(), name='tag'),
-    path('detail/<int:article_id>/comment', views.comment, name='comment')
+    path('detail/<int:article_id>/comment', views.comment, name='comment'),
 ]

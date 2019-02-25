@@ -2,3 +2,7 @@
 .header {
   background-color: blue !important;
 }
+
+.navbar-expand-lg {
+  background-color: rgba(83, 84, 83, 0.23)
+}

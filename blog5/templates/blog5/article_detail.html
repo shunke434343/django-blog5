@@ -1,7 +1,6 @@
 {% extends 'blog5/base.html' %}
 {% load widget_tweaks %}
-
-
+{% load humanize %}
 {% block content %}
 <div class="container">
   <div class="row">
@@ -9,9 +8,6 @@
     <main class="post blog-post col-lg-8">
       <div class="container">
         <div class="post-single">
-          <div class="post-thumbnail">
-            <img src="{{ article.image.url }}" alt="..." class="img-fluid">
-          </div>
           <div class="post-details">
             <div class="post-meta d-flex justify-content-between">
               <div class="category">
@@ -22,7 +18,8 @@
             <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
               <div class="d-flex align-items-center flex-wrap">
                 <div class="date">
-                  <i class="icon-clock"></i> 2 months ago
+                  <i class="icon-clock"></i>
+                  {{ article.created_at|naturaltime }}
                 </div>
                 <!-- <div class="views"><i class="icon-eye"></i> 500</div>  閲覧数 -->
                 <div class="comments meta-last">
@@ -30,8 +27,8 @@
                 </div>
               </div>
             </div>
-            <div class="post-body">
-              {{ article.content | safe }}
+            <div class="post-body" style="list-style-position:inside">
+              {{ article.text_to_markdown | safe }}
             </div>
             <!-- タグ -->
             <div class="post-tags">

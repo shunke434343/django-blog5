@@ -15,7 +15,7 @@
   {% with prev=article.get_previous_by_created_at %}
     {% if prev %}
       <a href="{% url 'blog5:detail' prev.pk %}" class="next-post text-right d-flex align-items-center justify-content-end">
-        <div class="text"><strong class="text-primary">Previous Post </strong>
+        <div class="text"><strong class="text-primary">前の記事 </strong>
           <h6>{{ prev.title }}</h6>
         </div>
         <div class="icon next"><i class="fa fa-angle-right"></i></div>
