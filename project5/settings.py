@@ -26,7 +26,7 @@ SECRET_KEY = '7ne-qn8*hv##%ec91(avvgm1gysb*1yxrhfkly@^px*@$*gfb6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS =[ 'shunka-blog.herokuapp.com']
+ALLOWED_HOSTS =['*']
 
 # Application definition
 
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'project5.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = { 'default': dj_database_url.config() }
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
