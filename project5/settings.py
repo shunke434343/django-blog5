@@ -88,11 +88,12 @@ WSGI_APPLICATION = 'project5.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # 変更
-        'NAME': 'heroku_03d0c4a147e76ff', # 変更
-        'USER': 'b71ffdbb36735a', # パソコンにインストールしたMySQLのユーザー名
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_03d0c4a147e76ff',
+        'USER': 'b71ffdbb36735a',
         'PASSWORD': '4eb40d50',
-        'HOST': 'us-cdbr-iron-east-03.cleardb.net',# 同上。そのパスワード
+        'HOST': 'us-cdbr-iron-east-03.cleardb.net',
+        'PORT': '3306',
                'OPTIONS': {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         }
