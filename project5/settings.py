@@ -26,7 +26,7 @@ SECRET_KEY = '7ne-qn8*hv##%ec91(avvgm1gysb*1yxrhfkly@^px*@$*gfb6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS =[ '.herokuapp.com'] 
+ALLOWED_HOSTS =[ '.herokuapp.com']
 
 # Application definition
 
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'project5.urls'
 
