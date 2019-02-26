@@ -26,7 +26,7 @@ SECRET_KEY = '7ne-qn8*hv##%ec91(avvgm1gysb*1yxrhfkly@^px*@$*gfb6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS =[ '.herokuapp.com']
+ALLOWED_HOSTS =[ 'shunka-blog.herokuapp.com']
 
 # Application definition
 
