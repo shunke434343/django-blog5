@@ -82,16 +82,22 @@ WSGI_APPLICATION = 'project5.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # 変更
-        'NAME': 'heroku_ca6daa9a65b63b4', # 変更
-        'USER': 'b202a6f91b82df', # パソコンにインストールしたMySQLのユーザー名
-        'PASSWORD': '15429d85',
-        'HOST': 'us-cdbr-iron-east-03.cleardb.net',# 同上。そのパスワード
-               'OPTIONS': {
-           'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', # 変更
+#         'NAME': 'heroku_ca6daa9a65b63b4', # 変更
+#         'USER': 'b202a6f91b82df', # パソコンにインストールしたMySQLのユーザー名
+#         'PASSWORD': '15429d85',
+#         'HOST': 'us-cdbr-iron-east-03.cleardb.net',# 同上。そのパスワード
+#                'OPTIONS': {
+#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         }
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
