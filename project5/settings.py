@@ -16,7 +16,7 @@ import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-DEBUG = True
+DEBUG = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -131,9 +131,9 @@ MEDIA_URL = '/media/'
 
 os.makedirs(STATIC_ROOT, exist_ok=True)
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-django_heroku.settings(locals())
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
+#
+# django_heroku.settings(locals())
