@@ -1,36 +1,41 @@
 <!doctype html>
 <html lang="ja">
 {% load static %}
-  <head>
+  <head prefix="og: http://ogp.me/ns# website: http://ogp.me/ns/website#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Shunka's Blog</title>
-    <meta name="description" content="">
+    <!-- OGP -->
+    <title>{% block headtitle %}Shunka's Blog{% endblock %}</title>
+    <meta name="description" content="プログラミングや日常のことなどを気ままに投稿します。">
+    <meta property="og:title"       content="{% block title %}Shunka's Blog{% endblock %}">
+    <meta property="og:description" content="{% block summary %}プログラミングや日常のことなどを気ままに投稿します。{% endblock %}" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:url"         content="{{ request.build_absolute_uri }}" />
+    <meta property="og:image"       content="{% block img %}{% static 'img/defo.jpg' %}{% endblock %}" />
+    <!-- <meta property="fb:app_id"      content="1234567890123456" /> -->
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:site"       content="@shunke428609" />
+    <!-- OGP END -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-    <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}">
-    <!-- Custom icon font-->
     <link rel="stylesheet" href="{% static 'css/fontastic.css' %}">
-    <!-- Google fonts - Open Sans-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <!-- Fancybox-->
     <link rel="stylesheet" href="{% static 'vendor/@fancyapps/fancybox/jquery.fancybox.min.css' %}">
-    <!-- theme stylesheet-->
     <link rel="stylesheet" href="{% static 'css/style.blue.css' %}" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <!-- Favicon-->
     <link rel="shortcut icon" href="{% static 'favicon.png' %}">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+      setTimeout("link()", 5000);
+      function link(){
+      location.href='https://shunka-blog.site/';
+      }
+    </script>
   </head>
   <body>
       {% include 'blog5/modules/header.html' %}
