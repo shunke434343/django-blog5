@@ -1,2 +1,2 @@
 # django-blog5
-個人ブログのソースコードです
+[個人ブログ](https://shunka-blog.site/)のソースコードです
