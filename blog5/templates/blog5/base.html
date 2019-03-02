@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+{% load static %}
+  <head prefix="og: http://ogp.me/ns# website: http://ogp.me/ns/website#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- OGP -->
+    <title>{% block headtitle %}Shunka's Blog{% endblock %}</title>
+    <meta name="description" content="プログラミングや日常のことなどを気ままに投稿します。">
+    <meta property="og:title"       content="{% block title %}Shunka's Blog{% endblock %}">
+    <meta property="og:description" content="{% block summary %}プログラミングや日常のことなどを気ままに投稿します。{% endblock %}" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:url"         content="{{ request.build_absolute_uri }}" />
+    <meta property="og:image"       content="{% block img %}{% static 'img/defo.jpg' %}{% endblock %}" />
+    <!-- <meta property="fb:app_id"      content="1234567890123456" /> -->
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:site"       content="@shunke428609" />
+    <!-- OGP END -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontastic.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="{% static 'vendor/@fancyapps/fancybox/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.blue.css' %}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+      setTimeout("link()", 5000);
+      function link(){
+      location.href='https://shunka-blog.site/';
+      }
+    </script>
+  </head>
+  <body>
+      {% include 'blog5/modules/header.html' %}
+      {% block content %}
+      {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'vendor/@fancyapps/fancybox/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/front.js' %}"></script>
+  </body>
+</html>

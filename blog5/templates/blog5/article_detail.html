@@ -1,0 +1,54 @@
+{% extends 'blog5/base.html' %}
+{% load widget_tweaks %}
+{% load humanize %}
+{% block headtitle %}{{ article.title }}{% endblock %}
+{% block title %}{{ block.super }} - {{ article.title }}{% endblock %}
+{% block summary %}{{ artcile.sammary}}{% endblock %}
+{% block img %}{{ article.image.url}}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <!-- Latest Posts -->
+    <main class="post blog-post col-lg-8">
+      <div class="container">
+        <div class="post-single">
+          <div class="post-details">
+            <div class="post-meta d-flex justify-content-between">
+              <div class="category">
+                <a href="{% url 'blog5:category' article.category.pk %}">{{ article.category.category }}</a>
+              </div>
+            </div>
+            <h1>{{ article.title }}</h1>
+            <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+              <div class="d-flex align-items-center flex-wrap">
+                <div class="date">
+                  <i class="icon-clock"></i>
+                  {{ article.created_at|naturaltime }}
+                </div>
+                <!-- <div class="views"><i class="icon-eye"></i> 500</div>  閲覧数 -->
+                <div class="comments meta-last">
+                  <i class="icon-comment"></i>{{ artcile.comment_set.all|length }}
+                </div>
+              </div>
+            </div>
+            <div class="post-body" style="list-style-position:inside">
+              {{ article.text_to_markdown | safe }}
+            </div>
+            <!-- タグ -->
+            <div class="post-tags">
+              {% for tag in article.tag.all %}
+              <a href="{% url 'blog5:tag' tag.pk %}" class="tag">#{{ tag }}</a>
+              {% endfor %}
+            </div>
+            {% include 'blog5/modules/mooving.html' %}
+            {% include 'blog5/modules/comments.html' %}
+            {% include 'blog5/modules/comment_form.html' %}
+          </div>
+        </div>
+      </main>
+      {% include 'blog5/modules/aside.html' %}
+    </div>
+  </div>
+</div>
+{% include 'blog5/modules/footer.html' %}
+{% endblock %}
