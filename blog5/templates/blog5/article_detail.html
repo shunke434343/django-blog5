@@ -3,7 +3,7 @@
 {% load humanize %}
 {% block headtitle %}{{ article.title }}{% endblock %}
 {% block title %}{{ block.super }} - {{ article.title }}{% endblock %}
-{% block summary %}{{ artcile.sammary}}{% endblock %}
+{% block summary %}{{ article.content }}{% endblock %}
 {% block img %}{{ article.image.url}}{% endblock %}
 {% block content %}
 <div class="container">

@@ -13,7 +13,7 @@ SECRET_KEY = '7ne-qn8*hv##%ec91(avvgm1gysb*1yxrhfkly@^px*@$*gfb6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['52.68.138.181', 'shunka-blog.site]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -105,14 +105,14 @@ USE_L10N = True
 USE_TZ = True
 
 # 静的ファイルの設定
-STATIC_ROOT = '/home/ubuntu/django-blog5/staticfiles'
-STATIC_URL = '/static/'
-os.makedirs(STATIC_ROOT, exist_ok=True)
+# STATIC_ROOT = '/home/ubuntu/django-blog5/staticfiles'
+# STATIC_URL = '/static/'
+# os.makedirs(STATIC_ROOT, exist_ok=True)
 
 # S3の設定
-AWS_STORAGE_BUCKET_NAME = 'mogload'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_STORAGE_BUCKET_NAME = 'mogload'
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 #開発環境用設定
 try:
